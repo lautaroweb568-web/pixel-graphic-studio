@@ -57,10 +57,10 @@ const contactForm = document.getElementById("contactForm");
 contactForm.addEventListener("submit", event => {
   event.preventDefault();
 
-  if (WHATSAPP_NUMBER === "5492235068882") {
-    alert("Primero configurá tu número de WhatsApp en script.js");
-    return;
-  }
+  if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER === "TU_NUMERO") {
+  alert("Primero configurá tu número de WhatsApp en script.js");
+  return;
+}
 
   const data = new FormData(contactForm);
 
