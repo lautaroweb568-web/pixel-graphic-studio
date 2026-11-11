@@ -315,6 +315,7 @@ button, input, select, textarea { font: inherit; }
   animation: none;
 }
 
+
 .marquee-content span {
   color: white;
   font: 700 11px var(--display);
@@ -360,10 +361,15 @@ button, input, select, textarea { font: inherit; }
 /* TARJETAS DE SERVICIOS */
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .service-card {
   background: var(--panel);
