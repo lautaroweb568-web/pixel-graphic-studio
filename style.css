@@ -1516,3 +1516,24 @@ img, svg { max-width: 100%; }
 
   .reveal { opacity: 1; transform: none; }
 }
+
+/* CAPTURAS REALES EN EL PORTFOLIO
+   Para usar una captura en otra tarjeta, reemplazá su bloque
+   <div class="preview-screen ..."> por <div class="preview-shot"><img ...></div> */
+
+.preview-shot {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+  border-radius: 2px;
+  line-height: 0;
+}
+
+.preview-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: left top;
+}
