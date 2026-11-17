@@ -1537,3 +1537,118 @@ img, svg { max-width: 100%; }
   object-fit: cover;
   object-position: left top;
 }
+
+/* =========================================
+   LOGOS E IDENTIDAD
+========================================= */
+
+.section.logos-section {
+  padding-top: 20px;
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 46px 24px;
+}
+
+.logo-card {
+  min-width: 0;
+}
+
+.logo-figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #303030;
+  line-height: 0;
+  background: #191919;
+}
+
+.logo-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  transition: transform .6s ease;
+}
+
+.logo-card:hover .logo-figure img {
+  transform: scale(1.03);
+}
+
+.logo-info {
+  padding-top: 20px;
+}
+
+.logo-meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-bottom: 10px;
+}
+
+.logo-meta h3 {
+  margin: 0;
+  color: #f5f5f5;
+  font: 800 clamp(22px, 2.4vw, 28px)/1.1 var(--display);
+  letter-spacing: -.04em;
+}
+
+.logo-meta span {
+  color: #a8a8a8;
+  font-size: 14px;
+}
+
+.logo-info > p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.logo-palette {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.logo-palette li {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #b4b4b4;
+  font: 12px var(--mono);
+  letter-spacing: .04em;
+}
+
+.logo-palette i {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .28);
+}
+
+.logo-info > .logo-type {
+  margin-top: 10px;
+  color: #8c8c8c;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .logos-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .section.logos-section { padding-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-figure img { transition: none; }
+  .logo-card:hover .logo-figure img { transform: none; }
+}
