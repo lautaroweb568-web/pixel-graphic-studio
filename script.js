@@ -78,9 +78,9 @@ window.addEventListener("scroll", updateHeader, { passive: true });
 // -----------------------------------------
 const navLinks = [...nav.querySelectorAll("a:not(.nav-button)")];
 
-const sections = navLinks
-  .map(link => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
+// Se observan todas las secciones con id (incluida la de preguntas),
+// así el menú deja de marcar "Nosotros" cuando ya pasaste a otra sección.
+const sections = [...document.querySelectorAll("main section[id]")];
 
 if ("IntersectionObserver" in window && sections.length) {
   const sectionObserver = new IntersectionObserver(
@@ -88,8 +88,11 @@ if ("IntersectionObserver" in window && sections.length) {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
 
+        // Una sección puede resaltar otro enlace del menú (data-nav)
+        const current = entry.target.dataset.nav || entry.target.id;
+
         navLinks.forEach(link => {
-          const active = link.getAttribute("href") === `#${entry.target.id}`;
+          const active = link.getAttribute("href") === `#${current}`;
           link.classList.toggle("active", active);
 
           if (active) {
@@ -112,7 +115,7 @@ if ("IntersectionObserver" in window && sections.length) {
 if ("IntersectionObserver" in window && !prefersReducedMotion) {
   const revealTargets = document.querySelectorAll(
     ".section-heading, .service-card, .statement .section-container > *, " +
-    ".portfolio-card, .portfolio-bottom, .process-item, .faq-item, " +
+    ".portfolio-card, .logo-card, .portfolio-bottom, .process-item, .faq-item, " +
     ".contact-copy, .contact-form"
   );
 
